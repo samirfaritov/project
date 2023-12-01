@@ -35,6 +35,7 @@ button {
     width: 360px;
     height: 850px;
     border: 1px solid #000;
+    margin: 0 auto;
 }
 
 .box .img {
