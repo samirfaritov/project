@@ -20,6 +20,7 @@ button {
     width: 250px;
     height: 40px;
     margin-bottom: 3px;
+    cursor: pointer;
 }
 
 .conteiner .content {
