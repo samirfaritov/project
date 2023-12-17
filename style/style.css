@@ -30,6 +30,7 @@ button {
     justify-content: start;
     flex-wrap: wrap;
     gap: 25px;
+    padding: 0 30px;
 }
 
 .box {
@@ -112,4 +113,11 @@ button {
 .box .text button:hover {
     border: 1px solid #1F86FF;
 background: #1F86FF;
+}
+
+.box {
+    width: 360px;
+    height: 518px;
+    border: 1px solid #000;
+    margin: 0 auto;
 }
