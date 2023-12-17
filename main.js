@@ -14,6 +14,8 @@ function getTodos() {
     });
 }
 
+console.log(state);
+
 function createTodo() {
   if (state.todos.length > 0) {
     for (let i = 0; i < state.todos[0].products.length; i++) {
@@ -30,7 +32,7 @@ function createTodo() {
                         <h3><i class='bx bx-star'></i><span class="star">${state.todos[0].products[i].rating}</span></h3>
                         <h3><i class='bx bxs-package' ></i><span class="count">${state.todos[0].products[i].stock}</span></h3>
                         </div>
-                    <button class="addItem" id="btn" data-action>В избранное</button>
+                    <button class="addItem" id="${state.todos[0].products[i].id}" data-action >В избранное</button>
                     </div>
             </div>
             `;
@@ -41,26 +43,42 @@ function createTodo() {
 
 getTodos();
 
+const tovar = document.querySelector('.tovar')
 let active = false;
 
 window.addEventListener("click", (e) => {
-  let a = e.target.hasAttribute("data-action");
-  if (a) {
-    
+  // let a = e.target.hasAttribute("data-action");
+  if (e.target.hasAttribute("data-action")) { 
+    const text = event.target.closest('.addItem')
+    active = !active;
+    if (active) {
+      text.style.backgroundColor = "#1F86FF";
+      text.innerHTML = "Добавлено";
+      text.style.color = "#fff";
+    } else {
+      text.style.backgroundColor = "#fff";
+      text.innerHTML = "В избранное";
+      text.style.color = "#000";
+    }
+
+    if (active) {
+      tovar.innerHTML++
+      let id = e.target.id  
+      let a = state.todos.filter(item => item.id = id)
+      localStorage.setItem('item', JSON.stringify(a))
+    } else {
+      tovar.innerHTML--
+      localStorage.setItem('item', JSON.stringify(''))
+    }
   }
 });
 
-// for (let i = 0; i < b.length; i++) {
-//   b[i].addEventListener("click", () => {
-//     active = !active;
-//     if (active) {
-//       b[i].style.backgroundColor = "#1F86FF";
-//       b[i].innerHTML = "Добавлено";
-//       b[i].style.color = "#fff";
-//     } else {
-//       b[i].style.backgroundColor = "#fff";
-//       b[i].innerHTML = "В избранное";
-//       b[i].style.color = "#000";
-//     }
-//   });
-// }
+
+const btn = document.querySelectorAll('button')
+
+for (let i = 0; i < btn.length; i++) {
+  btn[i].addEventListener('click', () => {
+    location.href = '/html/korzina.html'
+  })
+}
+
