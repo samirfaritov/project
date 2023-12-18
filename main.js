@@ -14,8 +14,6 @@ function getTodos() {
     });
 }
 
-console.log(state);
-
 function createTodo() {
   if (state.todos.length > 0) {
     for (let i = 0; i < state.todos[0].products.length; i++) {
@@ -49,8 +47,8 @@ let active = false;
 window.addEventListener("click", (e) => {
   // let a = e.target.hasAttribute("data-action");
   if (e.target.hasAttribute("data-action")) { 
-    const text = event.target.closest('.addItem')
     active = !active;
+    const text = event.target.closest('.addItem')
     if (active) {
       text.style.backgroundColor = "#1F86FF";
       text.innerHTML = "Добавлено";
