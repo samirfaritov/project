@@ -1,6 +1,7 @@
 const content = document.querySelector(".content");
 let state = {
   todos: [],
+  add: JSON.parse(localStorage.getItem('arr') || '[]')
 };
 
 function getTodos() {
@@ -47,36 +48,22 @@ let active = false;
 window.addEventListener("click", (e) => {
   // let a = e.target.hasAttribute("data-action");
   if (e.target.hasAttribute("data-action")) { 
-    active = !active;
     const text = event.target.closest('.addItem')
-    if (active) {
-      text.style.backgroundColor = "#1F86FF";
-      text.innerHTML = "Добавлено";
-      text.style.color = "#fff";
-    } else {
-      text.style.backgroundColor = "#fff";
-      text.innerHTML = "В избранное";
-      text.style.color = "#000";
-    }
+    let clicked = state.todos[0].products.filter((item) => item.id == e.target.id)
+    text.classList.toggle('added')
 
-    if (active) {
-      tovar.innerHTML++
-      let id = e.target.id  
-      let a = state.todos.filter(item => item.id = id)
-      localStorage.setItem('item', JSON.stringify(a))
+    if (text.classList.contains('added')) {
+      text.innerHTML = 'dobavleno'
+      state.add.push(clicked[0])
+      localStorage.setItem('arr', JSON.stringify(state.add))
     } else {
-      tovar.innerHTML--
-      localStorage.setItem('item', JSON.stringify(''))
+      text.innerHTML = 'v izbrannoe'
+      state.add = state.add.filter((item) => item.id !== clicked[0].id)
+      localStorage.setItem('arr', JSON.stringify(state.add))
     }
   }
+
+  tovar.innerHTML = state.add.length
+
 });
-
-
-const btn = document.querySelectorAll('button')
-
-for (let i = 0; i < btn.length; i++) {
-  btn[i].addEventListener('click', () => {
-    location.href = '/html/korzina.html'
-  })
-}
 

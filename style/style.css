@@ -16,7 +16,7 @@
 button {
     border-radius: 10px;
     border: 1px solid #000;
-    background: #fff;
+    background: #888585;
     width: 250px;
     height: 40px;
     margin-bottom: 3px;
@@ -34,16 +34,20 @@ button {
 }
 
 .box {
-    width: 360px;
-    height: 850px;
-    border: 1px solid #000;
+    width: 32%;
+    height: 450px;
+    border: 1px solid transparent;
     margin: 0 auto;
+    padding: 10px;
+    background-color: #ccc;
+    border-radius: 20px;
 }
 
 .box .img {
     width: 100%;
     height: 40%;
-    border: 1px solid #000;
+    border: 1px solid transparent;
+    margin-bottom: 10px;
 }
 
 .box .img img {
@@ -54,13 +58,15 @@ button {
 
 .box .text {
     width: 100%;
-    height: 60%;
+    height: 58%;
     padding: 30px;
-    background-color: #000;
+    background-color: #656464;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    border-radius: 10px;
+
 }
 
 .box .text h1 {
@@ -98,12 +104,13 @@ button {
 .box .text .rates h3 i {
     color: rgb(13, 13, 204);
     font-size: 14px;
+    margin-right: 5px;
 }
  
 .box .text button {
     border-radius: 10px;
-    border: 1px solid #000;
-    background: #ffff;
+    border: 1px solid transparent;
+    background: #cbcbcb;
     width: 100%;
     height: 40px;
     cursor: pointer;
@@ -111,13 +118,11 @@ button {
 }
 
 .box .text button:hover {
-    border: 1px solid #1F86FF;
-background: #1F86FF;
+    border: 1px solid #93acc7;
+background: #9cb4cf;
 }
 
-.box {
-    width: 360px;
-    height: 518px;
-    border: 1px solid #000;
-    margin: 0 auto;
+.added {
+    background-color: blue !important;
+    color: #fff !important;
 }
