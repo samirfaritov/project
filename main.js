@@ -53,11 +53,11 @@ window.addEventListener("click", (e) => {
     text.classList.toggle('added')
 
     if (text.classList.contains('added')) {
-      text.innerHTML = 'dobavleno'
+      text.innerHTML = 'Добавлено'
       state.add.push(clicked[0])
       localStorage.setItem('arr', JSON.stringify(state.add))
     } else {
-      text.innerHTML = 'v izbrannoe'
+      text.innerHTML = 'В избранное'
       state.add = state.add.filter((item) => item.id !== clicked[0].id)
       localStorage.setItem('arr', JSON.stringify(state.add))
     }
